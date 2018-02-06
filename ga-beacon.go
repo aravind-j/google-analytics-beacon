@@ -26,7 +26,7 @@ var (
 	badgeGif     = mustReadFile("static/badge.gif")
 	badgeFlat    = mustReadFile("static/badge-flat.svg")
 	badgeFlatGif = mustReadFile("static/badge-flat.gif")
-	pageTemplate = template.Must(template.New("page").ParseFiles("ga-beacon/page.html"))
+	pageTemplate = template.Must(template.New("page").ParseFiles("page.html"))
 )
 
 func init() {
@@ -106,7 +106,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// check allowed Tracking Ids
-	config := readConfig("ga-beacon/conf.json")
+	config := readConfig("conf.json")
 	if !checkTrackingId(params[0], config.TrackingIds) {
 		http.Error(w, "Forbidden, read https://github.com/vitr/google-analytics-beacon", 403)
 		return
