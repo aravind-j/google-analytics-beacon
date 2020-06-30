@@ -1,5 +1,4 @@
-runtime: go
-api_version: go1
+runtime: go112
 
 default_expiration: "1d"
 
@@ -9,4 +8,4 @@ handlers:
   upload: static/favicon\.ico
 
 - url: /.*
-  script: _go_app
+  script: auto
